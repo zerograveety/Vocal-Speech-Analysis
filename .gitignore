@@ -1,13 +1,13 @@
-# macOS
+# macOS system files
 .DS_Store
 .AppleDouble
 Icon
 
-# IDE/editor
+# IDE / Editor settings
 .vscode/
 .idea/
 
-# Python caches
+# Python cache and testing artifacts
 __pycache__/
 *.py[cod]
 *$py.class
@@ -18,7 +18,7 @@ __pycache__/
 .coverage.*
 htmlcov/
 
-# Packaging/build
+# Build / Packaging
 build/
 dist/
 downloads/
@@ -31,8 +31,9 @@ pip-wheel-metadata/
 .tox/
 .nox/
 
-# Virtual environments
+# Virtual environments (common names)
 .venv/
+.venv311/
 venv/
 env/
 ENV/
@@ -42,10 +43,10 @@ ENV/
 .env
 .env.*
 
-# Node (if present)
+# Node / frontend (if present)
 node_modules/
 
-# Project runtime artifacts
+# Project runtime/output artifacts
 uploads/
 ppt_uploads/
 tts_output/
@@ -55,9 +56,11 @@ improvements/
 outputs/
 visualizations/
 
-# Temp files
+# Temp / logs
+*.log
 tempCodeRunnerFile.*
-*.log.venv/
-.venv311/
-.venv/
-.venv311/
+
+# macOS extra
+._*
+.Spotlight-V100
+.Trashes
