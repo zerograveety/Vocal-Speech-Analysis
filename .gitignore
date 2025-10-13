@@ -57,4 +57,5 @@ visualizations/
 
 # Temp files
 tempCodeRunnerFile.*
-*.log
+*.log.venv/
+.venv311/
