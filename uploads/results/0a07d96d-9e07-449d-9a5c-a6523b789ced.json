@@ -1,0 +1,61 @@
+{
+  "video_results": {
+    "file": {
+      "path": "/Users/zerograveety/Desktop/Vocal-Check-Video-analysis-and-feedback-tool-master 4/uploads/WhatsApp_Video_2025-09-24_at_22.54.19.mp4",
+      "size_bytes": 1936580
+    },
+    "video": {
+      "duration_seconds": 19.47,
+      "fps": 30.0,
+      "frame_count": 584,
+      "resolution": {
+        "width": 484,
+        "height": 794,
+        "label": "484x794"
+      }
+    },
+    "mediapipe": {
+      "enabled": true,
+      "frames_sampled": 20,
+      "detections": {
+        "face_presence_ratio": 1.0,
+        "pose_presence_ratio": 1.0,
+        "hand_presence_ratio": 0.35
+      }
+    },
+    "eye_contact": 1.0,
+    "posture": 0.0,
+    "hand_movement": 0.35,
+    "confidence_level": 0.505,
+    "quick_assessment": {
+      "quality_hint": "Lower resolution",
+      "pacing_hint": "Stable frame pacing",
+      "notes": [
+        "MediaPipe metrics are computed on sampled frames.",
+        "Install mediapipe for richer analysis (optional)."
+      ]
+    }
+  },
+  "ppt_results": null,
+  "gemini_analysis": {
+    "overall_score": 45,
+    "strengths": [
+      "Maintained exceptional eye contact with the camera throughout the entire presentation.",
+      "The speaker's face and body were consistently visible and well-framed.",
+      "Demonstrated strong on-camera presence by always facing the audience."
+    ],
+    "improvements": [
+      "Posture was identified as a critical area for improvement, appearing slumped or unstable.",
+      "Hand gestures were largely absent, missing opportunities to add emphasis and appear dynamic.",
+      "The overall confidence level was moderate and could be significantly enhanced with better body language.",
+      "The video was recorded in a lower, vertical resolution, which can affect perceived quality."
+    ],
+    "recommendations": [
+      "Practice presenting while standing or sitting tall with shoulders back to project authority.",
+      "Consciously use your hands to gesture and illustrate points, keeping them visible in the frame.",
+      "Rehearse your presentation to build comfort and fluency, which will naturally boost your confidence.",
+      "Record in a higher resolution (e.g., 1080p) and in landscape format for a more professional look."
+    ],
+    "summary": "You have excellent, engaging eye contact. The key to unlocking a more powerful delivery lies in significantly improving your posture and incorporating purposeful hand gestures to project greater confidence."
+  }
+}

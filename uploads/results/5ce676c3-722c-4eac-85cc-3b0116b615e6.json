@@ -1,0 +1,605 @@
+{
+  "video_results": {
+    "eye_contact": 1.0,
+    "hand_movement": 0.299,
+    "posture": 0.0,
+    "speech_pauses": {
+      "pause_ratio": 0.035,
+      "total_pauses": 1,
+      "avg_pause_ms": 686.0
+    },
+    "confidence_level": 0.679,
+    "transcript": "Hey there! Stop scrolling! What if I told you that this winter could change everything for you? Join our winter edition of Season of Skills. You will get to find a lot of interesting online workshops to learn, thrive and grow all from the comfort of home. Why let this opportunity slip away when you can register right away and join us for the growth? And fun!",
+    "timeline": [
+      {
+        "start": 0.0,
+        "end": 0.5,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.127,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 0.5,
+        "end": 1.0,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.558,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 1.0,
+        "end": 1.5,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.173,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 1.5,
+        "end": 2.0,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.389,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 2.0,
+        "end": 2.5,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.321,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 2.5,
+        "end": 3.0,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.215,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 3.0,
+        "end": 3.5,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.263,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 3.5,
+        "end": 4.0,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.236,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 4.0,
+        "end": 4.5,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.296,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 4.5,
+        "end": 5.0,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.06,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 5.0,
+        "end": 5.5,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.723,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 5.5,
+        "end": 6.0,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.197,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 6.0,
+        "end": 6.5,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.451,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 6.5,
+        "end": 7.0,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.256,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 7.0,
+        "end": 7.5,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.281,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 7.5,
+        "end": 8.0,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.308,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 8.0,
+        "end": 8.5,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.522,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 8.5,
+        "end": 9.0,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.506,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 9.0,
+        "end": 9.5,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.372,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 9.5,
+        "end": 10.0,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.381,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 10.0,
+        "end": 10.5,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.507,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 10.5,
+        "end": 11.0,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.296,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 11.0,
+        "end": 11.5,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.231,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 11.5,
+        "end": 12.0,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.166,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 12.0,
+        "end": 12.5,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.216,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 12.5,
+        "end": 13.0,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.429,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 13.0,
+        "end": 13.5,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.204,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 13.5,
+        "end": 14.0,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.039,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 14.0,
+        "end": 14.5,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.414,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 14.5,
+        "end": 15.0,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.287,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 15.0,
+        "end": 15.5,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.17,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 15.5,
+        "end": 16.0,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.254,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 16.0,
+        "end": 16.5,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.612,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 16.5,
+        "end": 17.0,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.26,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 17.0,
+        "end": 17.5,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.061,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 17.5,
+        "end": 18.0,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.358,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 18.0,
+        "end": 18.5,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.212,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 18.5,
+        "end": 19.0,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.22,
+        "confidence": 0.7,
+        "low": true
+      },
+      {
+        "start": 19.0,
+        "end": 19.466666666666665,
+        "eye_contact": 1.0,
+        "posture": 0.0,
+        "hand_movement": 0.103,
+        "confidence": 0.7,
+        "low": true
+      }
+    ],
+    "low_segments": [
+      {
+        "start": 0.0,
+        "end": 0.5,
+        "start_str": "00:00",
+        "end_str": "00:00"
+      },
+      {
+        "start": 0.5,
+        "end": 1.0,
+        "start_str": "00:00",
+        "end_str": "00:01"
+      },
+      {
+        "start": 1.0,
+        "end": 1.5,
+        "start_str": "00:01",
+        "end_str": "00:01"
+      },
+      {
+        "start": 1.5,
+        "end": 2.0,
+        "start_str": "00:01",
+        "end_str": "00:02"
+      },
+      {
+        "start": 2.0,
+        "end": 2.5,
+        "start_str": "00:02",
+        "end_str": "00:02"
+      },
+      {
+        "start": 2.5,
+        "end": 3.0,
+        "start_str": "00:02",
+        "end_str": "00:03"
+      },
+      {
+        "start": 3.0,
+        "end": 3.5,
+        "start_str": "00:03",
+        "end_str": "00:03"
+      },
+      {
+        "start": 3.5,
+        "end": 4.0,
+        "start_str": "00:03",
+        "end_str": "00:04"
+      },
+      {
+        "start": 4.0,
+        "end": 4.5,
+        "start_str": "00:04",
+        "end_str": "00:04"
+      },
+      {
+        "start": 4.5,
+        "end": 5.0,
+        "start_str": "00:04",
+        "end_str": "00:05"
+      },
+      {
+        "start": 5.0,
+        "end": 5.5,
+        "start_str": "00:05",
+        "end_str": "00:05"
+      },
+      {
+        "start": 5.5,
+        "end": 6.0,
+        "start_str": "00:05",
+        "end_str": "00:06"
+      },
+      {
+        "start": 6.0,
+        "end": 6.5,
+        "start_str": "00:06",
+        "end_str": "00:06"
+      },
+      {
+        "start": 6.5,
+        "end": 7.0,
+        "start_str": "00:06",
+        "end_str": "00:07"
+      },
+      {
+        "start": 7.0,
+        "end": 7.5,
+        "start_str": "00:07",
+        "end_str": "00:07"
+      },
+      {
+        "start": 7.5,
+        "end": 8.0,
+        "start_str": "00:07",
+        "end_str": "00:08"
+      },
+      {
+        "start": 8.0,
+        "end": 8.5,
+        "start_str": "00:08",
+        "end_str": "00:08"
+      },
+      {
+        "start": 8.5,
+        "end": 9.0,
+        "start_str": "00:08",
+        "end_str": "00:09"
+      },
+      {
+        "start": 9.0,
+        "end": 9.5,
+        "start_str": "00:09",
+        "end_str": "00:09"
+      },
+      {
+        "start": 9.5,
+        "end": 10.0,
+        "start_str": "00:09",
+        "end_str": "00:10"
+      },
+      {
+        "start": 10.0,
+        "end": 10.5,
+        "start_str": "00:10",
+        "end_str": "00:10"
+      },
+      {
+        "start": 10.5,
+        "end": 11.0,
+        "start_str": "00:10",
+        "end_str": "00:11"
+      },
+      {
+        "start": 11.0,
+        "end": 11.5,
+        "start_str": "00:11",
+        "end_str": "00:11"
+      },
+      {
+        "start": 11.5,
+        "end": 12.0,
+        "start_str": "00:11",
+        "end_str": "00:12"
+      },
+      {
+        "start": 12.0,
+        "end": 12.5,
+        "start_str": "00:12",
+        "end_str": "00:12"
+      },
+      {
+        "start": 12.5,
+        "end": 13.0,
+        "start_str": "00:12",
+        "end_str": "00:13"
+      },
+      {
+        "start": 13.0,
+        "end": 13.5,
+        "start_str": "00:13",
+        "end_str": "00:13"
+      },
+      {
+        "start": 13.5,
+        "end": 14.0,
+        "start_str": "00:13",
+        "end_str": "00:14"
+      },
+      {
+        "start": 14.0,
+        "end": 14.5,
+        "start_str": "00:14",
+        "end_str": "00:14"
+      },
+      {
+        "start": 14.5,
+        "end": 15.0,
+        "start_str": "00:14",
+        "end_str": "00:15"
+      },
+      {
+        "start": 15.0,
+        "end": 15.5,
+        "start_str": "00:15",
+        "end_str": "00:15"
+      },
+      {
+        "start": 15.5,
+        "end": 16.0,
+        "start_str": "00:15",
+        "end_str": "00:16"
+      },
+      {
+        "start": 16.0,
+        "end": 16.5,
+        "start_str": "00:16",
+        "end_str": "00:16"
+      },
+      {
+        "start": 16.5,
+        "end": 17.0,
+        "start_str": "00:16",
+        "end_str": "00:17"
+      },
+      {
+        "start": 17.0,
+        "end": 17.5,
+        "start_str": "00:17",
+        "end_str": "00:17"
+      },
+      {
+        "start": 17.5,
+        "end": 18.0,
+        "start_str": "00:17",
+        "end_str": "00:18"
+      },
+      {
+        "start": 18.0,
+        "end": 18.5,
+        "start_str": "00:18",
+        "end_str": "00:18"
+      },
+      {
+        "start": 18.5,
+        "end": 19.0,
+        "start_str": "00:18",
+        "end_str": "00:19"
+      },
+      {
+        "start": 19.0,
+        "end": 19.466666666666665,
+        "start_str": "00:19",
+        "end_str": "00:19"
+      }
+    ]
+  },
+  "ppt_results": null,
+  "gemini_analysis": "Of course. Based on the provided presentation analysis data, here is a comprehensive overall analysis and feedback, formatted for clarity and actionable improvement.\n\n---\n\n### **Comprehensive Presentation Analysis & Feedback**\n\nThis analysis evaluates your presentation based on key visual and speech metrics to provide a holistic view of your performance and guide you toward greater impact.\n\n#### **1. Overall Presentation Quality Assessment**\n\n**Overall Score: 4/10**\n\nThis score reflects a presentation with a very strong foundation in two critical areas: eye contact and message clarity. However, it is significantly held back by major issues in physical delivery, specifically posture and hand movement, which in turn negatively affect perceived confidence and overall dynamism. The potential for a high-quality presentation is evident, but it is currently unrealized due to these physical aspects.\n\n#### **2. Key Strengths Identified**\n\n*   **Exceptional Eye Contact (Score: 1.0/1.0):** Your eye contact is perfect. You maintained a direct connection with the camera/audience throughout the entire presentation. This is a crucial skill that builds trust, credibility, and keeps the viewer engaged. This is your biggest asset—well done.\n*   **Engaging and Concise Script:** The transcript shows a well-crafted message. It starts with a strong hook (\"Stop scrolling!\"), poses an intriguing question, clearly states the value proposition (\"learn, thrive and grow\"), and ends with a clear call-to-action (\"register right away\"). The language is energetic and perfectly suited for a short, promotional video.\n\n#### **3. Areas for Improvement**\n\n*   **Posture (Score: 0.0/1.0):** This is the most critical area needing immediate attention. A score of 0.0 indicates that your posture was consistently poor throughout the presentation. Poor posture (such as slouching, hunching, or leaning) can project a lack of confidence, energy, and authority, regardless of how well you speak.\n*   **Use of Hand Gestures (Score: 0.299/1.0):** Your hand movement was minimal and lacked purpose. While you did use some gestures, they were infrequent and not impactful enough to complement your message. This can make your delivery appear stiff, reserved, or unenthusiastic.\n*   **Pacing and Vocal Variety (Pause Ratio: 3.5%):** With only one detected pause, your delivery was likely too fast and monotonous. Strategic pauses are powerful tools used to add emphasis, create suspense, and give the audience a moment to absorb key information. Rushing through your script can diminish its impact and make you sound breathless or nervous.\n\n#### **4. Specific Recommendations for Enhancement**\n\nTo transform your delivery from adequate to compelling, focus on these actionable steps:\n\n*   **Recommendation 1: Command Your Space with Strong Posture.**\n    *   **Before You Record:** Stand up, roll your shoulders back and down, and lift your chest. Imagine a string pulling the crown of your head up towards the ceiling. This aligns your spine and instantly makes you appear more confident and authoritative.\n    *   **During the Presentation:** Plant your feet firmly about shoulder-width apart. Keep your core engaged and avoid slouching or leaning. A strong physical foundation translates directly into a stronger vocal and visual presence.\n\n*   **Recommendation 2: Animate Your Message with Purposeful Gestures.**\n    *   **Match Gestures to Words:** Go through your script and plan where a gesture could add emphasis.\n        *   *\"...change **everything** for you?\"* - Use an open, expansive gesture with both hands.\n        *   *\"...learn, thrive and **grow**\"* - Use a gesture that moves upward, like lifting an open palm.\n        *   *\"...register **right away**...\"* - Use a decisive, clear gesture, like a soft point or a gesture of invitation.\n    *   **Keep Your \"Gesture Box\":** Keep your hand movements within the space between your shoulders and your waist. This ensures they look natural and professional on camera.\n\n*   **Recommendation 3: Control the Pace to Maximize Impact.**\n    *   **Practice with Intentional Pauses:** Record yourself practicing the script, but force yourself to take a one-second pause after each sentence. This will feel unnatural at first, but it will train you to slow down.\n    *   **Identify Your \"Power Pauses\":** The most effective place for a pause in your script is here: *\"What if I told you that this winter could change everything for you?* **(PAUSE)** *Join our winter edition...\"* This pause creates suspense and makes the next line more impactful.\n    *   **Breathe:** A low pause ratio often indicates shallow breathing. Take a calm, deep breath before you begin speaking to ground yourself and support your voice.\n\n#### **5. Professional Feedback on Presentation Skills**\n\nYou have two of the most important building blocks for effective communication already in place: you know how to connect with an audience through **excellent eye contact**, and you can craft a **clear and compelling message**. This is a fantastic starting point.\n\nCurrently, your physical delivery is not aligned with the energy of your words. The data indicates a consistent lack of physical confidence, primarily driven by poor posture and static body language. Think of it this way: your words are saying \"energetic and exciting,\" but your body is communicating \"reserved and uncertain.\" This disconnect is what limits the overall impact of your presentation.\n\nBy focusing intently on improving your posture, incorporating meaningful hand gestures, and mastering your vocal pacing, you will bridge this gap. These physical adjustments will not only enhance how the audience perceives you but will also genuinely boost your own sense of confidence, turning a good message into an unforgettable one."
+}

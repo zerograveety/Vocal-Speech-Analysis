@@ -1,0 +1,34 @@
+{
+  "video_results": {
+    "file": {
+      "path": "/Users/zerograveety/Desktop/Vocal-Check-Video-analysis-and-feedback-tool-master 4/uploads/WhatsApp_Video_2025-09-24_at_22.54.19.mp4",
+      "size_bytes": 1936580
+    },
+    "video": {
+      "duration_seconds": 19.62,
+      "fps": 30.0,
+      "frame_count": 584,
+      "resolution": {
+        "width": 484,
+        "height": 794,
+        "label": "484x794"
+      }
+    },
+    "audio": {
+      "present": true
+    },
+    "quick_assessment": {
+      "quality_hint": "Lower resolution",
+      "pacing_hint": "Stable frame pacing",
+      "audio_hint": "Has audio",
+      "notes": [
+        "This is a basic, fast local analysis.",
+        "For deeper body-language or speech analysis, run dedicated pipelines."
+      ]
+    }
+  },
+  "ppt_results": null,
+  "gemini_analysis": {
+    "summary": "Error getting Gemini analysis: \n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+  }
+}

@@ -1,0 +1,8 @@
+flask>=3.0.0
+werkzeug>=3.0.0
+opencv-python>=4.8.0
+python-pptx>=0.6.23
+moviepy>=1.0.3
+numpy>=1.26.0
+pandas>=2.0.0
+mediapipe>=0.10.20

@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Analysis Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <style>
+        :root {
+            /* Align with landing page theme */
+            --bg-gradient: linear-gradient(135deg, #0f172a, #1e293b);
+            --card: rgba(255, 255, 255, 0.03);
+            --text: #f8fafc;
+            --muted: #cbd5e1;
+            --border: rgba(255, 255, 255, 0.1);
+            --good: #22c55e;
+            --mid: #eab308;
+            --bad: #ef4444;
+            --shadow: 0 6px 18px rgba(0,0,0,0.35);
+            --radius: 14px;
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; background: var(--bg-gradient); color: var(--text); font-family: 'Outfit', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+        .container { max-width: 1320px; margin: 0 auto; padding: 32px; }
+        .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+        .title { font-size: 24px; font-weight: 600; letter-spacing: 0.2px; }
+        .grid { display: grid; gap: 22px; }
+        .two-col { grid-template-columns: 1.15fr 0.85fr; align-items: start; }
+        @media (max-width: 1100px){ .two-col { grid-template-columns: 1fr; } }
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); padding: 24px; transition: transform 0.2s ease, box-shadow 0.2s ease; backdrop-filter: blur(6px); }
+        .card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.45); }
+        .card h3 { margin: 0 0 12px 0; font-size: 16px; font-weight: 600; color: #eee; }
+        .muted { color: var(--muted); font-size: 13px; }
+        .row { display: flex; gap: 20px; align-items: center; }
+        .row-col { display: flex; flex-direction: column; gap: 12px; }
+        .progress-wrap { width: 140px; height: 140px; position: relative; }
+        .progress-circle { width: 140px; height: 140px; border-radius: 50%; background: conic-gradient(var(--good) 0deg, var(--good) 0deg, #333 0deg 360deg); display: grid; place-items: center; position: relative; }
+        .progress-circle.medium { background: conic-gradient(var(--mid) 0deg, var(--mid) 0deg, #333 0deg 360deg); }
+        .progress-circle.low { background: conic-gradient(var(--bad) 0deg, var(--bad) 0deg, #333 0deg 360deg); }
+        .progress-inner { width: 102px; height: 102px; border-radius: 50%; background: var(--card); border: 1px solid var(--border); display: grid; place-items: center; font-size: 22px; font-weight: 700; }
+        .kpis { display: grid; grid-template-columns: 1fr; gap: 14px; }
+        .kpi { display: flex; flex-direction: column; gap: 10px; padding: 16px; border-radius: 12px; background: #191919; border: 1px solid var(--border); }
+        .kpi .icon { font-size: 20px; width: 34px; height: 34px; display: grid; place-items: center; border-radius: 8px; background: #222; }
+        .kpi .label { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+        .kpi .value { font-size: 20px; font-weight: 800; }
+        .kpi .row-head { display: flex; align-items: center; gap: 10px; }
+        .tooltip { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; background: #2a2a2a; color: #bbb; font-size: 11px; cursor: default; }
+        .tooltip:hover::after { content: attr(data-tip); position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%); background: #222; color: #ddd; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--border); width: max-content; max-width: 260px; white-space: normal; box-shadow: var(--shadow); }
+        .progress-bar { width: 100%; height: 10px; background: #232323; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; }
+        .progress-fill { height: 100%; width: 0%; background: var(--good); transition: width 600ms ease; }
+        .progress-fill.mid { background: var(--mid); }
+        .progress-fill.bad { background: var(--bad); }
+        .badge { padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+        .badge.good { background: rgba(34,197,94,0.15); color: var(--good); border: 1px solid rgba(34,197,94,0.3); }
+        .badge.mid { background: rgba(234,179,8,0.15); color: var(--mid); border: 1px solid rgba(234,179,8,0.3); }
+        .badge.bad { background: rgba(239,68,68,0.15); color: var(--bad); border: 1px solid rgba(239,68,68,0.3); }
+        .list { margin: 0; padding-left: 22px; display: grid; gap: 10px; line-height: 1.6; }
+        .card.positive { background: rgba(34,197,94,0.06); }
+        .card.warning { background: rgba(234,179,8,0.06); }
+        .card.info { background: rgba(59,130,246,0.06); }
+        .accordion details { border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px; background: #151515; }
+        .accordion summary { cursor: pointer; font-weight: 600; color: #eee; }
+        .collapse summary { cursor: pointer; color: #eee; }
+        .cta { display: inline-flex; gap: 8px; align-items: center; padding: 12px 18px; border-radius: 12px; color: white; text-decoration: none; font-weight: 600; background: linear-gradient(to right, #3b82f6, #a855f7); box-shadow: 0 10px 20px -5px rgba(59,130,246,0.4); border: none; }
+        .cta:hover { transform: translateY(-2px); box-shadow: 0 15px 25px -5px rgba(168,85,247,0.45); }
+        .footer { margin-top: 20px; display: flex; justify-content: center; }
+    </style>
+</head>
+<body>
+    {% set vr = video_results or {} %}
+    {% set gem = gemini_analysis or {} %}
+    {% set conf = ((vr.get('confidence_level', 0) * 100) | round | int) %}
+    {% set eye = ((vr.get('eye_contact', 0) * 100) | round | int) %}
+    {% set posture = ((vr.get('posture', 0) * 100) | round | int) %}
+    {% set hand = ((vr.get('hand_movement', 0) * 100) | round | int) %}
+    {% set gem_score = gem.get('overall_score') %}
+    {% set overall = (conf if (gem_score is none or gem_score <= 0) else gem_score) | int %}
+    {% set overall_deg = 360 * (overall / 100.0) %}
+    {% set overall_color = 'var(--good)' if overall >= 70 else ('var(--mid)' if overall >= 40 else 'var(--bad)') %}
+    {% set overall_class = '' %}
+    {% if overall < 40 %}{% set overall_class = 'low' %}{% elif overall < 70 %}{% set overall_class = 'medium' %}{% endif %}
+    {% set badge_conf_class = 'good' if conf >= 70 else ('mid' if conf >= 40 else 'bad') %}
+    {% set badge_eye_class = 'good' if eye >= 70 else ('mid' if eye >= 40 else 'bad') %}
+    {% set badge_posture_class = 'good' if posture >= 70 else ('mid' if posture >= 40 else 'bad') %}
+    {% set badge_hand_class = 'good' if hand >= 70 else ('mid' if hand >= 40 else 'bad') %}
+    {% set conf_bar_class = '' %}{% if conf < 40 %}{% set conf_bar_class = 'bad' %}{% elif conf < 70 %}{% set conf_bar_class = 'mid' %}{% endif %}
+    {% set eye_bar_class = '' %}{% if eye < 40 %}{% set eye_bar_class = 'bad' %}{% elif eye < 70 %}{% set eye_bar_class = 'mid' %}{% endif %}
+    {% set posture_bar_class = '' %}{% if posture < 40 %}{% set posture_bar_class = 'bad' %}{% elif posture < 70 %}{% set posture_bar_class = 'mid' %}{% endif %}
+    {% set hand_bar_class = '' %}{% if hand < 40 %}{% set hand_bar_class = 'bad' %}{% elif hand < 70 %}{% set hand_bar_class = 'mid' %}{% endif %}
+    <div class="container">
+        <div class="header">
+            <div class="title"><i class="fa-solid fa-gauge"></i> Analysis Dashboard</div>
+            <a class="cta" href="/"><i class="fa-solid fa-redo"></i> Analyze Another</a>
+        </div>
+
+        <div class="grid two-col">
+            <!-- Left Column -->
+            <div class="left-col" style="display: grid; gap: 22px;">
+                <div class="card" style="text-align:center;">
+                    <div class="row" style="justify-content:center;">
+                        <div class="progress-wrap">
+                            <div id="overallCircle" class="progress-circle {{ overall_class }}" style="background: conic-gradient({{ overall_color }} 0deg {{ overall_deg }}deg, #333 {{ overall_deg }}deg 360deg)">
+                                <div id="overallInner" class="progress-inner">{{ overall }}%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-col" style="gap:8px; align-items:center;">
+                        <h3 style="font-size:18px;">Overall Score</h3>
+                        <div class="muted" id="overallSummary" style="max-width: 780px;">{{ (gemini_analysis and gemini_analysis.get('summary')) or 'Concise AI summary not available.' }}</div>
+                        <div id="overallBadge" class="badge {{ 'good' if overall >= 70 else ('mid' if overall >= 40 else 'bad') }}" style="width: fit-content;">{{ 'Strong' if overall >= 70 else ('Moderate' if overall >= 40 else 'Weak') }}</div>
+                    </div>
+                </div>
+                  <div class="card">
+                    <h3><i class="fa-solid fa-bars-progress"></i> Key Metrics</h3>
+                    <div class="kpis">
+                        <div class="kpi" title="Weighted cue combining visual and speech metrics">
+                            <div class="row-head">
+                                <div class="icon">🎤</div>
+                                <div>
+                                    <div class="label">Confidence <span class="tooltip" data-tip="Combines eye contact, posture and speech pause cues">i</span></div>
+                                    <div class="value" id="valConfidence">{{ conf }}%</div>
+                                </div>
+                                <div id="badgeConfidence" class="badge {{ badge_conf_class }}" style="margin-left:auto;">{{ 'Strong' if conf >= 70 else ('Moderate' if conf >= 40 else 'Weak') }}</div>
+                            </div>
+                            <div class="progress-bar"><div id="barConfidence" class="progress-fill {{ conf_bar_class }}" style="width: {{ conf }}%;"></div></div>
+                        </div>
+
+                        <div class="kpi" title="How forward-facing your gaze is on average">
+                            <div class="row-head">
+                                <div class="icon">👁️</div>
+                                <div>
+                                    <div class="label">Eye Contact <span class="tooltip" data-tip="Estimates forward gaze using face landmarks">i</span></div>
+                                    <div class="value" id="valEye">{{ eye }}%</div>
+                                </div>
+                                <div id="badgeEye" class="badge {{ badge_eye_class }}" style="margin-left:auto;">{{ 'Strong' if eye >= 70 else ('Moderate' if eye >= 40 else 'Weak') }}</div>
+                            </div>
+                            <div class="progress-bar"><div id="barEye" class="progress-fill {{ eye_bar_class }}" style="width: {{ eye }}%;"></div></div>
+                        </div>
+
+                        <div class="kpi" title="Uprightness and stability of posture">
+                            <div class="row-head">
+                                <div class="icon">🧍</div>
+                                <div>
+                                    <div class="label">Posture <span class="tooltip" data-tip="Back angle relative to vertical">i</span></div>
+                                    <div class="value" id="valPosture">{{ posture }}%</div>
+                                </div>
+                                <div id="badgePosture" class="badge {{ badge_posture_class }}" style="margin-left:auto;">{{ 'Strong' if posture >= 70 else ('Moderate' if posture >= 40 else 'Weak') }}</div>
+                            </div>
+                            <div class="progress-bar"><div id="barPosture" class="progress-fill {{ posture_bar_class }}" style="width: {{ posture }}%;"></div></div>
+                        </div>
+
+                        <div class="kpi" title="Expressiveness and movement of hands">
+                            <div class="row-head">
+                                <div class="icon">✋</div>
+                                <div>
+                                    <div class="label">Hand Movement <span class="tooltip" data-tip="Normalized displacement of hand keypoints">i</span></div>
+                                    <div class="value" id="valHand">{{ hand }}%</div>
+                                </div>
+                                <div id="badgeHand" class="badge {{ badge_hand_class }}" style="margin-left:auto;">{{ 'Strong' if hand >= 70 else ('Moderate' if hand >= 40 else 'Weak') }}</div>
+                            </div>
+                            <div class="progress-bar"><div id="barHand" class="progress-fill {{ hand_bar_class }}" style="width: {{ hand }}%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Strengths Card (Left Column) -->
+                <div class="card positive accordion">
+                    <details open>
+                        <summary><i class="fa-solid fa-thumbs-up"></i> Strengths</summary>
+                        <ul id="listStrengths" class="list" style="margin-top:10px;"></ul>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-col" style="display: grid; gap: 22px;">
+                <div class="card">
+                    <h3><i class="fa-solid fa-radar"></i> Overview</h3>
+                    <canvas id="radarChart" height="340"></canvas>
+                </div>
+                <div class="card warning accordion">
+                    <details open>
+                        <summary><i class="fa-solid fa-screwdriver-wrench"></i> Improvements</summary>
+                        <ul id="listImprovements" class="list" style="margin-top:10px;"></ul>
+                    </details>
+                </div>
+                <div class="card info accordion">
+                    <details open>
+                        <summary><i class="fa-solid fa-list-check"></i> Recommendations</summary>
+                        <ul id="listRecommendations" class="list" style="margin-top:10px;"></ul>
+                    </details>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid" style="margin-top: 16px;">
+            <div class="card">
+                <h3><i class="fa-solid fa-triangle-exclamation"></i> Low-Confidence Summary</h3>
+                <div id="lowSummary" class="muted" style="margin-bottom: 8px;">—</div>
+                <details class="collapse">
+                    <summary>Details</summary>
+                    <div id="lowDetails" class="muted" style="margin-top: 8px;"></div>
+                </details>
+            </div>
+            <div class="card" style="overflow:auto;">
+                <h3><i class="fa-solid fa-bug"></i> Data Check</h3>
+                <div class="muted">Server-rendered values to verify data flow:</div>
+                <ul class="list" style="margin-top:10px;">
+                    <li>Overall: {{ overall }}%</li>
+                    <li>Confidence: {{ conf }}%</li>
+                    <li>Eye Contact: {{ eye }}%</li>
+                    <li>Posture: {{ posture }}%</li>
+                    <li>Hand Movement: {{ hand }}%</li>
+                </ul>
+                <details class="collapse" style="margin-top:10px;">
+                    <summary>Raw JSON preview</summary>
+                    <pre style="white-space:pre-wrap;">video_results: {{ vr | tojson }}
+gemini_analysis: {{ gem | tojson }}</pre>
+                </details>
+            </div>
+        </div>
+
+        <div class="footer">
+            <a class="cta" href="/"><i class="fa-solid fa-redo"></i> Analyze Another Presentation</a>
+        </div>
+    </div>
+
+    <script>
+        (function(){
+            const videoResults = {{ (video_results or {}) | tojson | safe }};
+            const gemini = {{ (gemini_analysis or {}) | tojson | safe }};
+            try { console.debug('results: videoResults', videoResults); } catch(e){}
+            try { console.debug('results: gemini', gemini); } catch(e){}
+
+            function clamp(n){ return Math.max(0, Math.min(100, Math.round(n))); }
+            function badgeFor(v){ if (v >= 70) return {cls:'good', label:'Strong'}; if (v >= 40) return {cls:'mid', label:'Moderate'}; return {cls:'bad', label:'Weak'}; }
+            function setBadge(el, v){ const b = badgeFor(v); el.className = 'badge ' + b.cls; el.textContent = b.label; }
+
+            const vr = videoResults || {};
+            const conf = clamp(((typeof vr.confidence_level === 'number' ? vr.confidence_level : 0) * 100));
+            const eye = clamp(((typeof vr.eye_contact === 'number' ? vr.eye_contact : 0) * 100));
+            const posture = clamp(((typeof vr.posture === 'number' ? vr.posture : 0) * 100));
+            const hand = clamp(((typeof vr.hand_movement === 'number' ? vr.hand_movement : 0) * 100));
+
+            const overallScore = (gemini && Number.isFinite(gemini.overall_score)) ? clamp(gemini.overall_score) : conf;
+            const summary = (gemini && typeof gemini.summary === 'string' && gemini.summary) ? gemini.summary : 'Concise AI summary not available.';
+
+            const circle = document.getElementById('overallCircle');
+            const inner = document.getElementById('overallInner');
+            const deg = 360 * (overallScore / 100);
+            if (inner) inner.textContent = String(overallScore) + '%';
+            if (circle) {
+                circle.style.background = 'conic-gradient(' + (overallScore>=70?'var(--good)':overallScore>=40?'var(--mid)':'var(--bad)') + ' 0deg ' + deg + 'deg, #333 ' + deg + 'deg 360deg)';
+                circle.classList.remove('medium','low');
+                if (overallScore < 40) circle.classList.add('low'); else if (overallScore < 70) circle.classList.add('medium');
+            }
+            const osum = document.getElementById('overallSummary'); if (osum) osum.textContent = summary;
+            setBadge(document.getElementById('overallBadge'), overallScore);
+
+            const elConf = document.getElementById('valConfidence'); if (elConf) elConf.textContent = String(conf) + '%';
+            const elEye = document.getElementById('valEye'); if (elEye) elEye.textContent = String(eye) + '%';
+            const elPosture = document.getElementById('valPosture'); if (elPosture) elPosture.textContent = String(posture) + '%';
+            const elHand = document.getElementById('valHand'); if (elHand) elHand.textContent = String(hand) + '%';
+            setBadge(document.getElementById('badgeConfidence'), conf);
+            setBadge(document.getElementById('badgeEye'), eye);
+            setBadge(document.getElementById('badgePosture'), posture);
+            setBadge(document.getElementById('badgeHand'), hand);
+
+            const ctx = document.getElementById('radarChart');
+            if (ctx && typeof window.Chart !== 'undefined') {
+                new window.Chart(ctx, {
+                    type: 'radar',
+                    data: { labels: ['Confidence', 'Eye Contact', 'Posture', 'Hand Movement'], datasets: [{ label: 'Metrics', data: [conf, eye, posture, hand], borderColor: 'rgba(34,197,94,0.8)', backgroundColor: 'rgba(34,197,94,0.18)', borderWidth: 2, pointBackgroundColor: '#22c55e' }] },
+                    options: { plugins: { legend: { labels: { color: '#ddd' } } }, scales: { r: { angleLines: { color: '#333' }, grid: { color: '#333' }, suggestedMin: 0, suggestedMax: 100, pointLabels: { color: '#bbb', font: { size: 12 } }, ticks: { display: false } } } }
+                });
+            }
+
+            function fillList(id, arr){
+                const ul = document.getElementById(id);
+                if (!ul) return;
+                ul.innerHTML = '';
+                (Array.isArray(arr) ? arr : []).forEach(x => { const li = document.createElement('li'); li.textContent = x; ul.appendChild(li); });
+                if (!ul.children.length){ const li = document.createElement('li'); li.className='muted'; li.textContent='No items.'; ul.appendChild(li); }
+            }
+            fillList('listStrengths', gemini && Array.isArray(gemini.strengths) ? gemini.strengths : []);
+            fillList('listImprovements', gemini && Array.isArray(gemini.improvements) ? gemini.improvements : []);
+            fillList('listRecommendations', gemini && Array.isArray(gemini.recommendations) ? gemini.recommendations : []);
+
+            const lowDiv = document.getElementById('lowDetails');
+            const lowSummary = document.getElementById('lowSummary');
+            const timeline = Array.isArray(vr.timeline) ? vr.timeline : [];
+            const lowCount = timeline.filter(w => w && w.low).length;
+            const percentLow = timeline.length ? clamp((lowCount / timeline.length) * 100) : ((Array.isArray(vr.low_segments) && vr.low_segments.length) ? 100 : 0);
+            if (lowSummary) lowSummary.textContent = '⚠️ ' + percentLow + '% of segments showed low confidence';
+            if (Array.isArray(vr.low_segments) && vr.low_segments.length){
+                const frag = document.createDocumentFragment();
+                const p = document.createElement('div'); p.textContent = 'Low-confidence windows: ' + vr.low_segments.length; p.style.marginBottom = '8px'; frag.appendChild(p);
+                const grid = document.createElement('div'); grid.style.display = 'grid'; grid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(120px, 1fr))'; grid.style.gap = '6px'; frag.appendChild(grid);
+                (vr.low_segments.slice(0, 60)).forEach(seg => { const tag = document.createElement('span'); tag.textContent = (seg.start_str || '') + '–' + (seg.end_str || ''); tag.style.padding = '6px 8px'; tag.style.border = '1px solid var(--border)'; tag.style.borderRadius = '8px'; tag.style.background = '#191919'; grid.appendChild(tag); });
+                if (lowDiv) lowDiv.appendChild(frag);
+            } else {
+                if (lowDiv) lowDiv.textContent = 'No low-confidence segments detected.';
+            }
+
+            function setBar(id, value){
+                const el = document.getElementById(id);
+                if (!el) return;
+                el.style.width = value + '%';
+                el.classList.remove('mid','bad');
+                if (value < 40) el.classList.add('bad'); else if (value < 70) el.classList.add('mid');
+            }
+            setBar('barConfidence', conf);
+            setBar('barEye', eye);
+            setBar('barPosture', posture);
+            setBar('barHand', hand);
+        })();
+    </script>

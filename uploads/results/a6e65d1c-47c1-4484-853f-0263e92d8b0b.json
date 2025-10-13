@@ -1,0 +1,61 @@
+{
+  "video_results": {
+    "file": {
+      "path": "/Users/zerograveety/Desktop/Vocal-Check-Video-analysis-and-feedback-tool-master 4/uploads/WhatsApp_Video_2025-09-24_at_22.54.19.mp4",
+      "size_bytes": 1936580
+    },
+    "video": {
+      "duration_seconds": 19.47,
+      "fps": 30.0,
+      "frame_count": 584,
+      "resolution": {
+        "width": 484,
+        "height": 794,
+        "label": "484x794"
+      }
+    },
+    "mediapipe": {
+      "enabled": true,
+      "frames_sampled": 20,
+      "detections": {
+        "face_presence_ratio": 1.0,
+        "pose_presence_ratio": 1.0,
+        "hand_presence_ratio": 0.35
+      }
+    },
+    "eye_contact": 1.0,
+    "posture": 0.0,
+    "hand_movement": 0.35,
+    "confidence_level": 0.505,
+    "quick_assessment": {
+      "quality_hint": "Lower resolution",
+      "pacing_hint": "Stable frame pacing",
+      "notes": [
+        "MediaPipe metrics are computed on sampled frames.",
+        "Install mediapipe for richer analysis (optional)."
+      ]
+    }
+  },
+  "ppt_results": null,
+  "gemini_analysis": {
+    "overall_score": 47,
+    "strengths": [
+      "Maintained perfect eye contact with the camera throughout the entire presentation.",
+      "The speaker's face and body were consistently visible and centered in the frame.",
+      "Demonstrated a stable on-screen presence without distracting movements."
+    ],
+    "improvements": [
+      "Posture was identified as a major weakness, suggesting a closed or slumped position.",
+      "Hand gestures were used infrequently and were not visible for a majority of the video.",
+      "The overall confidence level was moderate and could be projected more strongly.",
+      "The vertical, low-resolution video format can appear unprofessional."
+    ],
+    "recommendations": [
+      "Practice presenting with an upright posture, keeping shoulders back and chest open to project authority.",
+      "Ensure your hands are visible and use purposeful gestures to emphasize key messages.",
+      "Record in a horizontal (landscape) orientation and at a higher resolution for a better viewing experience.",
+      "Rehearse the material thoroughly to build self-assurance, which will improve perceived confidence."
+    ],
+    "summary": "Excellent eye contact was a key strength, but overall impact was diminished by poor posture and limited hand gestures. Improving physical presence and confidence is crucial for a stronger delivery."
+  }
+}

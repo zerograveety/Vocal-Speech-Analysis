@@ -1,0 +1,47 @@
+{
+  "video_results": {
+    "file": {
+      "path": "/Users/zerograveety/Desktop/My projects/Vocal-Check-Video-analysis-and-feedback-tool-master 4/uploads/1000168120.mp4",
+      "size_bytes": 11803188
+    },
+    "video": {
+      "duration_seconds": 2.88,
+      "fps": 60.0,
+      "frame_count": 173,
+      "resolution": {
+        "width": 2160,
+        "height": 3840,
+        "label": "2160x3840"
+      }
+    },
+    "mediapipe": {
+      "enabled": false,
+      "frames_sampled": 3,
+      "detections": {
+        "face_presence_ratio": 0.0,
+        "pose_presence_ratio": 0.0,
+        "hand_presence_ratio": 0.0
+      }
+    },
+    "eye_contact": 0.0,
+    "posture": 0.0,
+    "hand_movement": 0.0,
+    "confidence_level": 0.0,
+    "quick_assessment": {
+      "quality_hint": "High resolution (1080p or above)",
+      "pacing_hint": "Stable frame pacing",
+      "notes": [
+        "MediaPipe metrics are computed on sampled frames.",
+        "Install mediapipe for richer analysis (optional)."
+      ]
+    }
+  },
+  "ppt_results": null,
+  "gemini_analysis": {
+    "overall_score": 0,
+    "strengths": [],
+    "improvements": [],
+    "recommendations": [],
+    "summary": "Gemini disabled or API key not set; showing local metrics only."
+  }
+}

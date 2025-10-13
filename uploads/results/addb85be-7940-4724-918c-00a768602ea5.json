@@ -1,0 +1,61 @@
+{
+  "video_results": {
+    "file": {
+      "path": "/Users/zerograveety/Desktop/Vocal-Check-Video-analysis-and-feedback-tool-master 4/uploads/WhatsApp_Video_2025-09-24_at_22.54.19.mp4",
+      "size_bytes": 1936580
+    },
+    "video": {
+      "duration_seconds": 19.47,
+      "fps": 30.0,
+      "frame_count": 584,
+      "resolution": {
+        "width": 484,
+        "height": 794,
+        "label": "484x794"
+      }
+    },
+    "mediapipe": {
+      "enabled": true,
+      "frames_sampled": 20,
+      "detections": {
+        "face_presence_ratio": 1.0,
+        "pose_presence_ratio": 1.0,
+        "hand_presence_ratio": 0.35
+      }
+    },
+    "eye_contact": 1.0,
+    "posture": 0.0,
+    "hand_movement": 0.35,
+    "confidence_level": 0.505,
+    "quick_assessment": {
+      "quality_hint": "Lower resolution",
+      "pacing_hint": "Stable frame pacing",
+      "notes": [
+        "MediaPipe metrics are computed on sampled frames.",
+        "Install mediapipe for richer analysis (optional)."
+      ]
+    }
+  },
+  "ppt_results": null,
+  "gemini_analysis": {
+    "overall_score": 47,
+    "strengths": [
+      "Maintains perfect and consistent eye contact, which is highly engaging.",
+      "Speaker remains fully visible and centered in the frame throughout the video.",
+      "The video is stable with smooth frame pacing, avoiding technical distractions."
+    ],
+    "improvements": [
+      "Posture is a critical area for improvement, scoring exceptionally low and suggesting slouching or instability.",
+      "Hand movement is minimal, indicating a lack of expressive gestures or hands being kept out of frame.",
+      "The overall confidence level is mediocre and is significantly held back by poor body language.",
+      "Video resolution is low, which can detract from the presentation's professional appearance."
+    ],
+    "recommendations": [
+      "Practice speaking while standing or sitting up straight with shoulders back to project confidence.",
+      "Consciously use hand gestures to emphasize key points and ensure they are visible within the camera frame.",
+      "Record and review practice sessions to build awareness of your posture and overall body language.",
+      "Consider using a higher resolution camera or adjusting settings for a clearer, more professional video."
+    ],
+    "summary": "Excellent eye contact creates a strong connection, but this is severely undermined by poor posture and limited hand gestures, resulting in a mediocre confidence level. Improving body language is the primary focus for growth."
+  }
+}
