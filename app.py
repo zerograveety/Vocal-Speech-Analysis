@@ -25,8 +25,8 @@ app.config['SECRET_KEY'] = 'dev-secret'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['RESULTS_FOLDER'] = RESULTS_FOLDER
 
-# Gemini API configuration (hardcoded per user request)
-GOOGLE_API_KEY = 'GEMINI_API_KEY_REMOVED'
+# Gemini API configuration — read from environment variable (never hardcode keys)
+GOOGLE_API_KEY = os.environ.get('GEMINI_API_KEY')
 if _GEMINI_AVAILABLE and GOOGLE_API_KEY:
     try:
         genai.configure(api_key=GOOGLE_API_KEY)  # type: ignore[attr-defined]

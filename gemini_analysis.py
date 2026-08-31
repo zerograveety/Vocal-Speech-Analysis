@@ -2,8 +2,10 @@ import google.generativeai as genai
 import json
 import os
 
-# Configure Gemini API
-GOOGLE_API_KEY = 'GEMINI_API_KEY_REMOVED'
+# Configure Gemini API — read from environment variable (never hardcode keys)
+GOOGLE_API_KEY = os.environ.get('GEMINI_API_KEY')
+if not GOOGLE_API_KEY:
+    raise RuntimeError("GEMINI_API_KEY environment variable not set.")
 genai.configure(api_key=GOOGLE_API_KEY)
 
 def analyze_with_gemini():

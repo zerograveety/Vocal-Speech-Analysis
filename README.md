@@ -1,73 +1,87 @@
-# Vocal-Check-Video-analysis-and-feedback-tool
-Vocal Check is an intelligent, real-time voice and video analysis tool designed to help users improve their presentation skills. It provides instant feedback on speech pace, pauses, filler words, body language, eye contact, and more.
+# Vocal Check
 
+**AI-powered presentation coach** — upload a video or slide deck and get instant, actionable feedback on your speaking and delivery.
 
+Vocal Check analyzes **speech pace, pauses, filler words, pronunciation, body language, eye contact, and slide design**, then uses Google Gemini to turn the raw metrics into clear, human feedback you can act on. Built for students preparing for viva/presentations, professionals refining public speaking, and trainers giving structured coaching.
 
-🚀 Features
+---
 
-🎤 Voice Analysis:
-feedback on pace, pauses, pronunciation, and filler word usage.
+## Features
 
-🎥 Video Analysis:
-Posture, eye contact, and gesture tracking using advanced computer vision.
+- 🎤 **Voice & speech analysis** — pacing, pauses, filler words, pronunciation, clarity, and tone.
+- 🎥 **Body-language tracking** — posture, eye contact, and gesture via MediaPipe pose/hand detection (with an OpenCV fallback).
+- 📊 **Slide-deck analysis** — text density and visual balance for `.pptx` uploads, plus optional grammar quality via a BERT-based CoLA classifier.
+- 🧠 **AI-powered insights** — Gemini synthesizes the raw metrics into clear, actionable feedback and an overall score.
+- 📄 **Detailed reports** — a results page summarizing every metric with recommendations.
+- 🛡️ **Graceful degradation** — optional heavy dependencies (torch/transformers, mediapipe) are detected at runtime and skipped if missing.
 
-🧠 AI-Powered Insights:
-Smart suggestions for improving presentation delivery based on multi-modal data.
+---
 
-📊 Detailed Feedback Reports:
-Summarized visual feedback with actionable tips for each session.
+## Tech Stack
 
+| Layer | Technology |
+|---|---|
+| Backend | Python · Flask |
+| AI / ML | Google Gemini API · MediaPipe · OpenCV · transformers (optional) |
+| Frontend | HTML · CSS · Vanilla JavaScript |
+| File handling | Werkzeug (secure uploads) |
 
+---
 
+## Getting Started
 
-🔧 Tech Stack
-JavaScript (Frontend)
+### Prerequisites
 
-Python (Backend)
+- Python 3.8+
+- A Google Gemini API key ([get one here](https://aistudio.google.com/app/apikey))
 
-Gemini API - for analyzing
+### Installation
 
-Speech-to-Text API - Whisper
+```bash
+git clone https://github.com/zerograveety/Vocal-Speech-Analysis.git
+cd Vocal-Speech-Analysis
+python -m venv venv
+source venv/bin/activate        # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+```
 
+### Configuration
 
+Set your API key as an environment variable (do **not** hardcode it or commit `.env`):
 
+```bash
+cp .env.example .env
+# then edit .env and set GEMINI_API_KEY=your_key_here
+export $(grep -v '^#' .env | xargs)   # or use a dotenv loader
+```
 
-🌟 Use Cases
-Students preparing for presentations or viva.
+### Run
 
-Professionals refining public speaking skills.
+```bash
+python app.py
+```
 
-Trainers providing structured feedback.
+Then open http://localhost:5000, and upload a video (`.mp4`/`.mov`) or slide deck (`.pptx`).
 
+---
 
-## Setup
+## Project Structure
 
-1. Install Python 3.8 or higher
-2. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+```
+app.py              # Flask application & routes
+video_analysis.py   # MediaPipe/OpenCV body + speech analysis
+ppt_analysis.py     # PPTX parsing, text density, grammar (CoLA)
+gemini_analysis.py  # Turns raw metrics into Gemini feedback
+templates/          # HTML templates (index, landing, practice, ppt, results)
+static/             # CSS and images
+test_api.py         # API tests
+test_installation.py# Environment smoke test
+```
 
-## Running the Application
-
-1. Start the Flask server:
-   ```bash
-   python app.py
-   ```
-2. Open your web browser and navigate to `http://localhost:5000`
-3. Upload a video file and wait for the analysis to complete
-
-## Directory Structure
-
-- `app.py` - Main Flask application
-- `templates/` - HTML templates
-- `uploads/` - Temporary storage for uploaded videos
-- `audio/` - Extracted audio files
-- `transcriptions/` - Transcription and analysis results
-- `outputs/` - Body language analysis results
+---
 
 ## Notes
 
-- The application supports video files up to 16MB in size
-- Processing time depends on the video length and complexity
-- Make sure you have a stable internet connection for the AI analysis features 
+- Videos up to 16MB are supported; processing time depends on length and complexity.
+- AI features require a working internet connection and a valid `GEMINI_API_KEY`.
+- `torch`/`transformers` are optional — install them if you want the grammar classifier (see `requirements.txt`).

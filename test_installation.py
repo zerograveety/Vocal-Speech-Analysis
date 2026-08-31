@@ -18,12 +18,11 @@ def main():
     packages = [
         'flask',
         'werkzeug',
-        'whisper',
         'google.generativeai',
-        'moviepy',
-        'gtts',
+        'cv2',            # opencv-python
+        'pptx',           # python-pptx
         'numpy',
-        'ratelimit'
+        'mediapipe',
     ]
     
     all_installed = True
